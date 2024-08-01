@@ -45,11 +45,7 @@ if(APPLE AND CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set( APPLE_MAC_OS ON )
 endif()
 
-if(APPLE_LOCKED_OS OR EMSCRIPTEN)
-    set( LIB_TYPE_DEFAULT ON )
-else()
-    set( LIB_TYPE_DEFAULT OFF )
-endif()
+set( LIB_TYPE_DEFAULT ON )
 
 CMAKE_DEPENDENT_OPTION( KTX_FEATURE_TOOLS
                         "Create KTX tools"
@@ -58,7 +54,7 @@ CMAKE_DEPENDENT_OPTION( KTX_FEATURE_TOOLS
                         OFF
 )
 option( KTX_FEATURE_DOC "Create KTX documentation." OFF )
-option( KTX_FEATURE_STATIC_LIBRARY "Create static libraries (shared otherwise)." ${LIB_TYPE_DEFAULT} )
+option( KTX_FEATURE_STATIC_LIBRARY "Create static libraries (shared otherwise)." ON )
 option( KTX_FEATURE_JNI "Create Java bindings for libktx." OFF )
 option( KTX_FEATURE_PY "Create Python source distribution." OFF )
 option( KTX_FEATURE_TESTS "Create unit tests." ON )
